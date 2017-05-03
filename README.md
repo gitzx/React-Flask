@@ -1,7 +1,7 @@
 
 ## React_Flask ##
 
-**React_Flask**前端采用[React](https://facebook.github.io/react/)及其相关库和[Material-UI](https://github.com/callemall/material-ui)前端UI框架，后端采用Flask提供API接口
+**React_Flask**前端采用[React](https://facebook.github.io/react/)及其相关库和[Material-UI](https://github.com/callemall/material-ui)前端UI框架，后端采用[Flask](http://flask.pocoo.org/)提供API接口.
 
 
 Demo
@@ -28,7 +28,7 @@ Demo
 
 
 ```bash
-$ git clone https://github.com/davezuko/react-flask.git 
+$ git clone https://github.com/gitzx/React_Flask.git
 $ cd React_Flask/backend
 $ python install -r requirements.txt
 $ python manage.py create_db
