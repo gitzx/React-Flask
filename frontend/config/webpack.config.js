@@ -140,8 +140,10 @@ webpackConfig.module.loaders.push({
   exclude : null,
   loaders : [
     'style',
-    BASE_CSS_LOADER,
-    'postcss',
+    'css?modules&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
+    //BASE_CSS_LOADER,
+    'resolve-url',
+    //'postcss',
     'sass?sourceMap'
   ]
 })

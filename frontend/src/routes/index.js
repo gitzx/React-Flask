@@ -7,6 +7,7 @@ import Login from './Login'
 import Register from './Register'
 import Welcome from './Welcome'
 import CMS from './CMS'
+import PostForm from './PostForm'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -70,6 +71,7 @@ export const createRoutes = (store) => ({
         CounterRoute(store),
         Welcome(store),
         CMS(store),
+        PostForm(store),
       ]
     },
     // non-authed routes

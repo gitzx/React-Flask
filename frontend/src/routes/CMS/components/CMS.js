@@ -50,7 +50,7 @@ class CMS extends Component {
     }
 
     const newButton = (
-      <Link to="/cms/posts/new">
+      <Link to="/postnew">
         <FloatingActionButton style={inlineStyles.floatButton} disableTouchRipple >
           <ContentAdd />
         </FloatingActionButton>
