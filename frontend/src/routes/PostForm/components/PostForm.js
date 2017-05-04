@@ -11,7 +11,7 @@ import styles from './styles.scss';
 const fields = [
   'id', 'title', 'publishedAt', 'leadSentence'
 ];
-
+/**
 function validate(values) {
   const errors = {};
   if (!values.title) {
@@ -20,7 +20,7 @@ function validate(values) {
 
   return errors;
 }
-
+**/
 class PostForm extends Component {
 
   constructor(props) {
