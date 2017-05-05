@@ -60,3 +60,17 @@ def cms():
         return jsonify(posts2)
     else:
         return jsonify(posts3)  
+
+
+
+@test_bp.route("/api/cms/new", methods=["GET"])
+def cmsnew():
+    postnew = {"id":"","title":"","accepted":False,"leadSentence":"","publishedAt":"","tagSuggestions":["RoR","Node.js"],"items":[],"tags":[]}
+    return jsonify(postnew)
+
+
+
+
+
+
+
