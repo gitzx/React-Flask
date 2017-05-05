@@ -58,3 +58,29 @@ export function createAuthorizedRequest(method, path, params) {
   }
 }
 
+export function trimPost(params) {
+  return {
+    ...convertKeyNameInSnakeCase(params),
+    items_attributes:
+      params.itemsAttributes
+        .filter(item => !item.editing)
+        .map(item => convertKeyNameInSnakeCase(item))
+  };
+}
+
+function convertKeyNameInSnakeCase(object) {
+  return Object.keys(object).reduce((newObject, oldKey) => {
+    newObject[convertCamelCaseToSnakeCase(oldKey)] = object[oldKey];
+    return newObject;
+  }, {});
+}
+
+function convertCamelCaseToSnakeCase(string) {
+  return string.replace(/([A-Z])/g,
+    function(string) {
+      return '_' + string.charAt(0).toLowerCase();
+    }
+  );
+}
+
+

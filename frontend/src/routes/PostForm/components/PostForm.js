@@ -36,12 +36,11 @@ class PostForm extends Component {
   }
 
   componentDidMount() {
+    console.log("this.props.params.id: " + this.props.params.id);
     if (this.props.params.id) {
-      this.props.fetchEditPost(this.props.params.id)
-        .then(() => this.props.finishLoading());
+      this.props.fetchEditPost(this.props.params.id);
     } else {
-      this.props.fetchNewPost()
-        .then(() => this.props.finishLoading());
+      this.props.fetchNewPost();
     }
   }
 
@@ -113,10 +112,15 @@ class PostForm extends Component {
   
   render() {
     const submitLabel = this.props.params.id ? 'Update' : 'Create';
-    const { handleSubmit, submitting, fields: { title, publishedAt, leadSentence } } = this.props;
+    console.log("this.props.params.id!!!!: " + this.props.params.id + " submitLabel: " + submitLabel);
+    for(var prop in this.props)
+    {
+        console.log("this.props." + prop + " = " + this.props[prop]);
+    }
+    const { handleSubmit, submitting,  title, publishedAt, leadSentence  } = this.props;
     
     return (
-      <form onSubmit={handleSubmit(this.handleSubmit)} >
+      <form onSubmit={this.handleSubmit(this.props)} >
         <h2 className={styles.heading}>{`${submitLabel} Post`}</h2>
         <TextField
           {...title}

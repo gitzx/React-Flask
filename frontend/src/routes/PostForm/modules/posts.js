@@ -10,6 +10,7 @@ const POST_PATH = '/api/cms';
 // ------------------------------------
 export const FETCH_NEW_POST_SUCCESS = 'FETCH_NEW_POST_SUCCESS';
 export const FETCH_EDIT_POST_SUCCESS = 'FETCH_EDIT_POST_SUCCESS';
+export const SAVE_POST_REQUEST = 'SAVE_POST_REQUEST';
 export const SAVE_POST_SUCCESS = 'SAVE_POST_SUCCESS';
 export const SAVE_POST_FAILURE= 'SAVE_POST_FAILURE';
 
@@ -17,8 +18,9 @@ export const SAVE_POST_FAILURE= 'SAVE_POST_FAILURE';
 // Actions
 // ------------------------------------
 function fetchNewPostSuccess(response) {
+  console.log("fetchNewPostSuccess: " + response);
   return {
-    type: FETCH_NEW_POST.SUCCESS,
+    type: FETCH_NEW_POST_SUCCESS,
     payload: {
       items: [],
       tags: {
@@ -76,19 +78,19 @@ export function fetchEditPost(id) {
 
 export function savePostRequest() {
   return {
-    type: SAVE_POST.REQUEST,
+    type: SAVE_POST_REQUEST,
   };
 }
 
 function savePostSuccess() {
   return {
-    type: SAVE_POST.SUCCESS,
+    type: SAVE_POST_SUCCESS,
   };
 }
 
 function savePostFailure({ errorMessage }) {
   return {
-    type: SAVE_POST.FAILURE,
+    type: SAVE_POST_FAILURE,
     payload: { errorMessage },
   };
 }
@@ -107,7 +109,7 @@ export function savePost(props) {
       request
         .then(() => dispatch(savePostSuccess()))
         .then(() => browserHistory.push('/cms'))
-        .catch(error => dispatch(savePostFailure(error.data)))
+        //.catch(error => dispatch(savePostFailure(error.data)))
     );
   };
 }
@@ -124,11 +126,6 @@ export const actions = {
 // ------------------------------------
 
 const INITIAL_STATE = { 
-  posts: [],
-  loading: false,
-  limit: 20, 
-  page: 1, 
-  total: 0,
   post: { title: '', publishedAt: '' },
   postForm: { },
   errorMessage: ''

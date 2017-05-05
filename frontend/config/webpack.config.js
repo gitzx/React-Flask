@@ -153,6 +153,7 @@ webpackConfig.module.loaders.push({
   loaders : [
     'style',
     BASE_CSS_LOADER,
+    'resolve-url',
     'postcss'
   ]
 })
