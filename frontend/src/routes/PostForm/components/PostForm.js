@@ -46,6 +46,8 @@ class PostForm extends Component {
 
 
   handleSubmit(props) {
+    console.log("this.props.items:" + this.props.items);
+    /**
     this.props.savePost(
       { 
         post: { 
@@ -55,6 +57,7 @@ class PostForm extends Component {
         }
       }
     );
+    **/
   }
 
   handleAddItem(targetType) {
@@ -124,6 +127,7 @@ class PostForm extends Component {
         <h2 className={styles.heading}>{`${submitLabel} Post`}</h2>
         <TextField
           {...title}
+          id="text-field-title"
           floatingLabelText="Title"
           hintText="Enter Title"
           fullWidth={true}
@@ -132,6 +136,7 @@ class PostForm extends Component {
         />
         <TextField
           {...leadSentence}
+          id="text-field-LeadSentence"
           floatingLabelText="Lead Sentence"
           hintText="Enter Lead Sentence"
           fullWidth={true}
@@ -140,6 +145,7 @@ class PostForm extends Component {
         <div className={styles.dateField} >
           <label className={styles.label}>Published At</label>
           <DatePicker
+            name="DatePicker"
             className={styles.datapicker}
             container="inline"
             autoOk={true}
